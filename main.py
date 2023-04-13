@@ -1,10 +1,13 @@
 from flask import Flask, request, render_template
 
 app = Flask(__name__)
+
+
 @app.route('/')
 @app.route('/index')
 def index():
     return render_template('index.html')
+
 
 @app.route('/', methods=['GET', 'POST'])
 def find_most_common_word():
@@ -22,5 +25,6 @@ def find_most_common_word():
         count = word_count[most_common_word]
         return render_template('result.html', most_common_word=most_common_word, count=count)
 
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
